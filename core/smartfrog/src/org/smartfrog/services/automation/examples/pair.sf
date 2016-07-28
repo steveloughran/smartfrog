@@ -1,0 +1,89 @@
+/** (C) Copyright 1998-2004 Hewlett-Packard Development Company, LP
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+/** (C) Copyright 1998-2004 Hewlett-Packard Development Company, LP
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+For more information: www.smartfrog.org
+
+*/
+
+#include "org/smartfrog/components.sf"
+#include "org/smartfrog/services/automation/statemodel/components.sf"
+#include "org/smartfrog/services/automation/threadpool/components.sf"
+
+// ////////////////////////////////////////////////////////////////////
+
+Image extends State {
+   sfClass "org.smartfrog.services.automation.examples.Image";
+   threadDelay 10000;
+
+   [stateData, stateListen] desiredStatus TBD;
+   [stateData, stateListen] desiredImage TBD;
+
+   [stateData, stateNotify] status "deleted";
+   [stateData, stateNotify] baseImage "";
+   [stateData, stateNotify] image "";
+}
+
+// ////////////////////////////////////////////////////////////////////
+
+VM extends State {
+   sfClass "org.smartfrog.services.automation.examples.VM";
+   threadDelay 10000;
+   failureFrequency 0;
+   image TBD;
+
+   [stateData, stateListen] desiredStatus TBD;
+   [stateData, stateNotify] status "deleted";
+}
+
+// ////////////////////////////////////////////////////////////////////
+
+PairState extends StateHolder {
+    [stateNotify] desiredStatus "deleted";
+    [stateNotify] desiredImage "foo.v1";
+
+    targetStatus LAZY desiredStatus;		
+} 
+
+// ////////////////////////////////////////////////////////////////////
+
+Pair extends Composite {
+    state extends PairState;
+    theVm extends VM {
+		image LAZY theImage:image;
+		desiredStatus LAZY state:targetStatus;
+    } 
+    theImage extends Image {
+		desiredStatus LAZY state:targetStatus;
+		desiredImage  LAZY state:desiredImage;
+    }
+}
+
+// ////////////////////////////////////////////////////////////////////
+
+sfConfig extends Compound {
+     threadpool extends ThreadPool {
+         sfProcessComponentName "threadpool";
+     }
+     model extends Model {
+         pair extends Pair;
+         [stateInvariant] pair:state:imageCreatedForVM ((LAZY theImage:status != "deleted") -> ((LAZY theVm:status == "deleted") || (LAZY theVm:status == "failed")));		
+     }
+}
