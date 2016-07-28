@@ -1,0 +1,129 @@
+/** (C) Copyright 1998-2004 Hewlett-Packard Development Company, LP
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+/** (C) Copyright 1998-2004 Hewlett-Packard Development Company, LP
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+For more information: www.smartfrog.org
+
+*/
+
+#include "org/smartfrog/components.sf"
+#include "org/smartfrog/services/automation/statemodel/components.sf"
+#include "org/smartfrog/services/automation/threadpool/components.sf"
+
+// ////////////////////////////////////////////////////////////////////
+
+Image extends State {
+   sfClass "org.smartfrog.services.automation.examples.Image";
+   threadDelay 10000;
+
+   [stateData, stateListen] desiredStatus TBD;
+   [stateData, stateListen] desiredImage TBD;
+
+   [stateData, stateNotify] status "deleted";
+   [stateData, stateNotify] baseImage "";
+   [stateData, stateNotify] image "";
+
+   deleteRequired ((LAZY desiredImage != LAZY baseImage) && (LAZY status != "deleted"));
+}
+
+// ////////////////////////////////////////////////////////////////////
+
+VM extends State {
+   sfClass "org.smartfrog.services.automation.examples.VM";
+   threadDelay 10000;
+   failureFrequency 0;
+   image TBD;
+
+   [stateData, stateListen] desiredStatus TBD;
+   [stateData, stateNotify] status "deleted";
+
+   deleteRequired (LAZY status == "failed");
+}
+
+// ////////////////////////////////////////////////////////////////////
+
+PairState extends StateHolder {
+    [stateNotify] desiredStatus "deleted";
+    [stateNotify] desiredImage "foo.v1";
+
+    targetStatus LAZY desiredStatus;		
+} 
+
+// ////////////////////////////////////////////////////////////////////
+
+Pair extends Composite {
+    state extends PairState {
+          targetStatus IF ((LAZY theVm:deleteRequired) || (LAZY theImage:deleteRequired)) THEN "deleted" ELSE LAZY desiredStatus FI;
+    }
+    theVm extends VM {
+		image LAZY theImage:image;
+		desiredStatus LAZY state:targetStatus;
+    } 
+    theImage extends Image {
+		desiredStatus LAZY state:targetStatus;
+		desiredImage  LAZY state:desiredImage;
+    }
+	VMWaitForImage extends Dependency {
+		on LAZY theImage; by LAZY theVm;
+		relevant (by:desiredStatus == "created");
+		enabled (on:status == "created");
+	}
+	ImageWaitForVM extends Dependency {
+		on LAZY theVm; by LAZY theImage;
+		relevant (by:desiredStatus == "deleted");
+		enabled ((on:status == "deleted") || (on:status == "failed"));
+	}
+	delayVMResetForImage extends Dependency {
+		on LAZY theImage; by LAZY theVm;
+		relevant (by:status == "failed");
+		enabled (on:status == "deleted");
+	}
+	delayImageCreateForReset extends Dependency {
+		on LAZY theVm; by LAZY theImage;
+		relevant (by:status == "deleted");
+		enabled (on:status != "failed");
+	}        
+}
+
+// ////////////////////////////////////////////////////////////////////
+
+sfConfig extends Compound {
+	threadpool extends ThreadPool {
+		sfProcessComponentName "threadpool";
+		maxThreads 100;
+	}
+	model extends Model {
+		systemState extends StateHolder {
+			[stateNotify] desiredStatus "deleted";
+		} 
+		mayDelete AndConnector;
+		array extends NWayComposite {
+			template extends DATA Pair {
+				state:desiredStatus LAZY systemState:desiredStatus;
+				preventDelete extends Dependency {
+					on LAZY mayDelete;
+					by LAZY theVm;
+					relevant (LAZY by:desiredStatus == "deleted"); 
+				}
+			}
+			instances 20;
+		}		
+	}
+}
