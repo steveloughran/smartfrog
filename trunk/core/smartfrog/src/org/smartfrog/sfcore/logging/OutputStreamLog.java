@@ -25,7 +25,7 @@ import java.io.OutputStream;
 /**
  * This creates an output stream from a log, an output stream that is buffered on a line-by-line basis.
  * At the end of each line (or on a flush), the output is written using the default encoding.
- * <p/>
+ * </p>
  * Created 01-Feb-2008 13:24:40
  *
  */

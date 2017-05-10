@@ -19,7 +19,7 @@ import java.util.Iterator;
  * backward compatility reasons this is not possible. Consequently Assert Reference impements the entire
  * gamut of the reference behaviour, inlcuding having parts, which is not relevant to a function applicaiton.
  * It should override these methods and generate some form of run-time exception - this has not been implemented.
- * <p/>
+ * </p>
  * The function application reference resolves by evaluating hte refeences it contains, then evaluating the funciton.
  * If
  */

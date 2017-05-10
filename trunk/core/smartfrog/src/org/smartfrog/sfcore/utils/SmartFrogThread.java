@@ -27,8 +27,8 @@ import java.rmi.RemoteException;
 /**
  * This thread represents the base class for threads run under SmartFrog. It
  * contains extra methods for behaviour we want across all our threads.
- * <p/>
- * <p/>
+ * </p>
+ * </p>
  * <ol>
  *
  *     <li>A notification is raised after the work is done, on whichever object

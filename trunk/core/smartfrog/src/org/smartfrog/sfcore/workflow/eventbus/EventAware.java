@@ -22,7 +22,7 @@ package org.smartfrog.sfcore.workflow.eventbus;
 import java.rmi.Remote;
 
 /**
- * <p/>
+ * </p>
  * Created: 17-Apr-2008
  */
 public interface EventAware extends Remote {

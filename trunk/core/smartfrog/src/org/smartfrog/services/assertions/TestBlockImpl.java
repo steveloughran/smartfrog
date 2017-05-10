@@ -265,7 +265,7 @@ public class TestBlockImpl extends EventCompoundImpl implements TestBlock {
      * underneath. It is only called outside of component termination, i.e. when {@link #isWorkflowTerminating()} is
      * false, and when the comp parameter is a child, that is <code>sfContainsChild(comp)</code> holds. If the the
      * method returns true, the event is forwarded up the object heirarchy, which will eventually trigger a component
-     * termination. <p/> Always return false if you start new components from this method! </p>
+     * termination. </p> Always return false if you start new components from this method! </p>
      *
      * @param record exit record of the component
      * @param comp   child component that is terminating

@@ -129,7 +129,7 @@ public class During extends EventCompoundImpl implements Compound {
      * false, and when the comp parameter is a child, that is <code>sfContainsChild(comp)</code> holds.
      * If the the method returns true, the event is forwarded up the object heirarchy, which
      * will eventually trigger a component termination.
-     * <p/>
+     * </p>
      * Always return false if you start new components from this method!
      * </p>
      *

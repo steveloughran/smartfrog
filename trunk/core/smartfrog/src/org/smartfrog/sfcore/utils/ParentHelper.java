@@ -141,7 +141,7 @@ public class ParentHelper implements ChildMinder {
      * lifecycle methods must still be invoked on the created component - namely
      * sfDeploy() and sfStart(). This is primarily an internal method - the
      * prefered method for end users is #sfCreateNewChild.
-     * <p/>
+     * </p>
      * Note that the remaining lifecycle methods must still be invoked on the
      * created component - namely sfDeploy() and sfStart().
      *

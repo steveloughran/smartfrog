@@ -36,9 +36,9 @@ import java.rmi.RemoteException;
 /**
  * This component runs an action when a termination request is received. The action is deployed on startup, but it is
  * only moved into the started state when the Try component is to be terminated.
- * <p/>
+ * </p>
  * You can use this component to deploy some action for cleanup, such as the execution of a remote shutdown command.
- * <p/>
+ * </p>
  * Be warned that there is no way to guarantee that the finally action will always be started. Emergency system
  * shutdowns can bypass this operation
  */

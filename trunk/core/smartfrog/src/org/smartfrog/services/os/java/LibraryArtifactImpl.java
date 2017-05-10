@@ -117,7 +117,7 @@ public class LibraryArtifactImpl extends FileUsingCompoundImpl
 
     /**
      * Retrieve our file from our parent libraries.
-     * <p/>
+     * </p>
      * <ol> <li> locate parent Library implementation <li> get information about
      * repository cache <li> work out names of remote URL, local filename <li>
      * bind our localfilename <li> fetch the jar (or fail) <li> validate the JAR

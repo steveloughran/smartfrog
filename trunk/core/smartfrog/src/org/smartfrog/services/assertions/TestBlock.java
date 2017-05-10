@@ -85,7 +85,6 @@ public interface TestBlock extends EventRegistration {
 
     /**
      * boolean: run tests on startup.
-     * <p/>
      * {@value}
      */
     String ATTR_RUN_TESTS_ON_STARTUP = "runTests";

@@ -33,7 +33,7 @@ import java.rmi.RemoteException;
  * This is something that can hand off resource loading to whatever does
  * loading.
  * created Jul 1,
- * <p/>
+ * </p>
  * 2004 4:44:38 PM
  */
 

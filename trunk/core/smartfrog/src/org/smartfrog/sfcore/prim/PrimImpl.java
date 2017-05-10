@@ -73,7 +73,7 @@ import java.util.Vector;
  * communicated with. The sfExport attribute is examined. If set to "true" the
  * sfExportRef method is called, which by default uses RMI to export the
  * component. Subclasses may choose to export a component another way.
- * <p/>
+ *
  * <p> A liveness thread is started for a primitive if it has no parent, but is
  * expected to have children (like Compound), or if the parent is remote.
  * Liveness attribute sfLivenessDelay dictates how often (in seconds) sfPing is
@@ -1620,11 +1620,11 @@ public class PrimImpl extends RemoteReferenceResolverHelperImpl
     /**
      * To log into sfCore logger. This method should be used to log Core
      * messages
-     * <p/>
+     * <p>
      * Types of possible logs in SF: - Core log - Application log - Component
      * log - Using sfSetLog() - Specific log - Using sfLog attribute in
      * component
-     * <p/>
+     * </p>
      * When initialized, sflog uses CoreLog, once the component enters in the
      * sfDeploy lifecycle phase, it is changed to use the specific log if sfLog
      * attribute is defined or if it is not defined it defaults to the core
