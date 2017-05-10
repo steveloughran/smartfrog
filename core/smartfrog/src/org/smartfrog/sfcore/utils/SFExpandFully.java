@@ -41,7 +41,7 @@ import java.io.IOException;
 /**
  * This class lets you expand out a complete .sf file to a new file; takes a source and a dest. It's really designed to
  * be used from Ant, but there are other uses.
- * <p/>
+ * </p>
  * It makes use of {@link SFParse} to do the heavy lifting, then calls {@link ComponentDescription#toString()} to
  * generate the output file
  */

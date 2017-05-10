@@ -25,13 +25,13 @@ import java.io.Serializable;
 /**
  * Class implementing the notion of a temporary value in a component
  * description.
- * <p/>
+ * </p>
  * It is created by an ASSERTION that is staticly checked only in response to a
  * correct validation.
- * <p/>
+ * </p>
  * All attributes whose values are a temporary value are removed during the
  * method sfAsComponentDescription from the Phases interface.
- * <p/>
+ * </p>
  * There is exactly one instance of the temporary value, to ensure that object
  * equality works appropriately. This is obtained using the static get()
  * method.

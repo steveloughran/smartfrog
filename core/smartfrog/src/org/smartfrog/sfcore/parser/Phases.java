@@ -75,6 +75,7 @@ public interface Phases extends ComponentDescription {
      * Return the phases required to be evaluated.
      *
      * @return the phases to apply
+     * @throws SmartFrogException  TBD
      */
     Vector sfGetPhases() throws SmartFrogException;
 

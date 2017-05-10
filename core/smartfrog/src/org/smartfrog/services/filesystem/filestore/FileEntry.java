@@ -86,11 +86,11 @@ public interface FileEntry extends Remote {
     /**
      * Append data to the file. After the write the buffer is flushed and the
      * file is unlocked.
-     * <p/>
+     * </p>
      * To do an atomic update, write everything in one go. To do a less-effient
      * but potentially less costly-over-the-wire update, write in a few large
      * blocks.
-     * <p/>
+     * </p>
      * There is no equivalent operation to get the content back.
      *
      * @param content byte array of content

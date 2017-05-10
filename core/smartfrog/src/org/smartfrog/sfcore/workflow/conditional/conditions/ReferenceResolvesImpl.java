@@ -26,7 +26,7 @@ import java.rmi.RemoteException;
 
 /**
  * This condition checks that a reference resolves, if not it fails. Useful in waiting/testing for values
- * <p/>
+ * </p>
  * Created 07-May-2009 15:20:51
  */
 

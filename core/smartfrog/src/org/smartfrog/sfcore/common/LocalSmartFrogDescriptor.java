@@ -36,7 +36,7 @@ import java.util.Vector;
 
 /**
  * This class parses .sf files locally; it is used to load up a {@link ComponentDescription}, with the option of turning
- * errors into an exception. <p/>
+ * errors into an exception. </p>
  *
  * Most of the content is null/invalid until an attempt to parse is made
  */

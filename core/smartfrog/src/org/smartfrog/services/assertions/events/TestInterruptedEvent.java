@@ -25,7 +25,7 @@ import org.smartfrog.sfcore.prim.Prim;
 /**
  * This is an even to push into the event queue to indicate that the test has been interrupted.
  * It breaks the waiting.
- * <p/>
+ * </p>
  * Created 11-Feb-2008 15:12:41
  *
  */

@@ -24,10 +24,10 @@ import java.io.Serializable;
 
 /**
  * Class implementing the notion of a NULL value in a component description.
- * <p/>
+ * </p>
  * It is indicated by using the attribute definition with no value, such as in
  * foo;
- * <p/>
+ * </p>
  * There is exactly one instance of the NULL value, to ensure that object
  * equality works appropriately. This is obtained using the static get()
  * method.

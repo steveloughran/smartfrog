@@ -473,7 +473,7 @@ public class TestCompoundImpl extends ConditionCompound
 
     /**
      * Called by {@link #sfPing(Object)} to run through the list of children and ping each in turn. If any child fails,
-     * {@link #sfLivenessFailure(Object, Object, Throwable)} is called and the iteration continues. <p/> Override this
+     * {@link #sfLivenessFailure(Object, Object, Throwable)} is called and the iteration continues. </p> Override this
      * method to implement different child ping behaviour.
      */
     @Override

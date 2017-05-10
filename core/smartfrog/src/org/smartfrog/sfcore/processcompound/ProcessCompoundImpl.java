@@ -70,14 +70,14 @@ import java.util.Vector;
  * as owning a particular port) is allowed per host. Every processcompound tries
  * to locate its parent on deployment, if there is none, it tries to become the
  * root of the host.
- * <p/>
+ * </p>
  * <p> Through the deployer class used for primitives "PrimProcessDeployerImpl"
  * the registration of components on deployment is guaranteed. A component being
  * registered only means that the component is known to the process compound and
  * will receive liveness from it. When the process compound is asked to
  * terminate (ie. asked to terminate the process) all components are terminated.
  * </p>
- * <p/>
+ * </p>
  * <p> You do not need to instantiate this class in order to get new processes.
  * In your component description that you want to deploy, simply define
  * sfProcessName with a string name of the processname that you want to deploy
@@ -1251,13 +1251,13 @@ public class ProcessCompoundImpl extends CompoundImpl
      * Gets the current class path out of the system properties and returns it
      * as a command line parameter for the subprocess. The class path is created
      * reading one of the following in order selection:
-     * <p/>
+     * </p>
      * <ol>
      * <li>from a property named sfcore.processcompound.PROCESS_NAME.java.class.path.</li>
      * <li>attribute java.class.path inside sfProcessAttribute
      * componentDescription</li>
      * </ol>
-     * <p/>
+     * </p>
      * The result if any is added (default) to the system property:  System
      * property java.class.path or replaced if  sfProcessReplaceClassPath=true
      *
@@ -1309,13 +1309,13 @@ public class ProcessCompoundImpl extends CompoundImpl
      * Gets the current org.smartfrog.codebase out of the system properties and
      * returns it as a command line parameter for the subprocess. The class path
      * is created reading one of the following in order selection:
-     * <p/>
+     * </p>
      * <ol>
      * <li>from a property named sfcore.processcompound.PROCESS_NAME.'org.smartfrog.codebase'.</li>
      * <li>attribute 'org.smartfrog.codebase' inside sfProcessAttribute
      * componentDescription</li>
      * </ol>
-     * <p/>
+     * </p>
      * The result if any is added (default) to the system property:  System
      * property 'org.smartfrog.codebase' or replaced if
      * sfProcessReplaceCodeBase=true

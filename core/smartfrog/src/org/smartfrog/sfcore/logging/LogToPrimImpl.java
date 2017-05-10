@@ -409,7 +409,7 @@ public class LogToPrimImpl extends LogToStreamsImpl implements LogToPrim {
 
     /**
      * <p> Are debug messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
@@ -428,7 +428,7 @@ public class LogToPrimImpl extends LogToStreamsImpl implements LogToPrim {
 
     /**
      * <p> Are error messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
@@ -447,7 +447,7 @@ public class LogToPrimImpl extends LogToStreamsImpl implements LogToPrim {
 
     /**
      * <p> Are fatal messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
@@ -467,7 +467,7 @@ public class LogToPrimImpl extends LogToStreamsImpl implements LogToPrim {
 
     /**
      * <p> Are info messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
@@ -486,7 +486,7 @@ public class LogToPrimImpl extends LogToStreamsImpl implements LogToPrim {
 
     /**
      * <p> Are trace messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
@@ -505,7 +505,7 @@ public class LogToPrimImpl extends LogToStreamsImpl implements LogToPrim {
 
     /**
      * <p> Are warn messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>

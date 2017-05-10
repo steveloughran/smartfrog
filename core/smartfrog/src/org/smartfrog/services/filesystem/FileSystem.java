@@ -784,9 +784,9 @@ public final class FileSystem {
     }
 
     /**
-     * Copies an <code>InputStream</code> to an <code>OutputStream</ code> using a local internal buffer for
+     * Copies an <code>InputStream</code> to an <code>OutputStream</code> using a local internal buffer for
      * performance. Compared to {@link #globalBufferCopy(InputStream,OutputStream)} this method allows for better
-     * concurrency, but each time it is called generates a buffer which will be garbage. <p/> All streams are closed
+     * concurrency, but each time it is called generates a buffer which will be garbage. </p> All streams are closed
      * afterwards.
      *
      * @param in  stream to copy from
@@ -818,7 +818,7 @@ public final class FileSystem {
     }
 
     /**
-     * Copies an <code>InputStream</code> to an <code>OutputStream</ code> using a global internal buffer for
+     * Copies an <code>InputStream</code> to an <code>OutputStream</code> using a global internal buffer for
      * performance. Compared to {@link #fCopy(InputStream,OutputStream)} this method generated no garbage, but
      *
      * decreases concurrency.
@@ -839,7 +839,7 @@ public final class FileSystem {
     }
 
     /**
-     * Copies an <code>InputStream</code> to an <code>OutputStream</ code> using the specified buffer.
+     * Copies an <code>InputStream</code> to an <code>OutputStream</code> using the specified buffer.
      *
      * All streams are closed afterwards.
      *

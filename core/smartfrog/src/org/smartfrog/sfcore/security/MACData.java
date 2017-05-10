@@ -12,9 +12,9 @@ import java.security.*;
 /**
  * Calculate/check the MAC associated with data in a byte array.
  * The MAC is assumed to belong at the end of the byte array containing the data
- * <p/>
+ * </p>
  * Can statically set a default key that will be used for all subsequent created MACData objects
- * <p/>
+ * </p>
  * To cope with distributed key update being non-transactional,
  * it will check the MAC with the current and the last key
  * but generates MAC with the latest key only.

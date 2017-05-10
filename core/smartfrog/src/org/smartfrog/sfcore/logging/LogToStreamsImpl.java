@@ -438,7 +438,7 @@ public class LogToStreamsImpl extends LogToNothingImpl implements LogToStreams, 
     /**
      * <p>Write the content of the message accumulated in the specified
      * <code>StringBuffer</code> to the appropriate output destination.
-     * <p/>
+     * </p>
      * this is the output stream specified in the constructor or, by default,
      * the reference to System.out <i>at the time of construction</i>. Changes
      * to System.out are not picked up.
@@ -610,7 +610,7 @@ public class LogToStreamsImpl extends LogToNothingImpl implements LogToStreams, 
 
     /**
      * <p> Are debug messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
@@ -624,7 +624,7 @@ public class LogToStreamsImpl extends LogToNothingImpl implements LogToStreams, 
 
     /**
      * <p> Are error messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
@@ -638,7 +638,7 @@ public class LogToStreamsImpl extends LogToNothingImpl implements LogToStreams, 
 
     /**
      * <p> Are fatal messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
@@ -652,7 +652,7 @@ public class LogToStreamsImpl extends LogToNothingImpl implements LogToStreams, 
 
     /**
      * <p> Are info messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
@@ -665,7 +665,7 @@ public class LogToStreamsImpl extends LogToNothingImpl implements LogToStreams, 
 
     /**
      * <p> Are trace messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
@@ -678,7 +678,7 @@ public class LogToStreamsImpl extends LogToNothingImpl implements LogToStreams, 
 
     /**
      * <p> Are warn messages currently enabled? </p>
-     * <p/>
+     * </p>
      * <p> This allows expensive operations such as <code>String</code>
      * concatenation to be avoided when the message will be ignored by the
      * logger. </p>
