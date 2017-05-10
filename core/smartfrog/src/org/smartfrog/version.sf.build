@@ -35,6 +35,8 @@ Version extends DATA {
   buildJavaVersion "@buildJavaVersion@";
   buildJavaVendor "@buildJavaVendor@";
   
+  buildAntVersion "@buildAntVersion@"
+  
   svnComment "SVN data is only valid for an official release because it tracks the revision for 'sf-build-version.properties'";
   svnLastChangedDate "@svnLastChangedDate@";
   svnRevision "@svnRevision@"; 

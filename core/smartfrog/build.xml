@@ -59,6 +59,7 @@
     <echo message="      Java: ${java.version} ${java.vendor} "/>
     <echo message="            ${java.home} "/>
     <echo message="      OS: ${os.name} ${os.version} (${os.arch})"/>
+	<echo message="      Ant: ${ant.version}"/>
     <echo message="      Build dir: ${basedir} "/>
     <echo message="      Core dir: ${core.dir}"/>
     <echo message="      Root dir: ${root.dir}"/>				    	
@@ -74,6 +75,7 @@
       = Java: ${java.version} ${java.vendor}
       = ${java.home}
       = OS: ${os.name} ${os.version}
+	  = Ant: ${ant.version}
       ===================================================================
     </echo>
     <fail>
@@ -255,6 +257,7 @@
       <entry key="sf.build.os.name" value="${os.name}"/>
       <entry key="sf.build.os.version" value="${os.version}"/>
       <entry key="sf.build.os.architecture" value="${os.arch}"/>
+	  <entry key="sf.build.ant.version" value="${ant.version}"/>
       <entry key="sf.svn.lastchangeddate" value="${sf.svn.lastchangeddate}"/>
       <entry key="sf.svn.revision" value="${sf.svn.revision}"/>
     </propertyfile>
@@ -279,6 +282,7 @@
       <replacefilter token="@buildOSName@" value="${sf.build.os.name}"/>
       <replacefilter token="@buildOSVersion@" value="${sf.build.os.version}"/>
       <replacefilter token="@buildOSArch@" value="${sf.build.os.architecture}"/>
+	  <replacefilter token="@buildAntVersion@" value="${sf.build.ant.version}"/>
       <replacefilter token="@copyright@" value="${Name.Company}"/>
       <replacefilter token="@svnRevision@" value="${sf.svn.revision}"/>
       <replacefilter token="@svnLastChangedDate@" value="${sf.svn.lastchangeddate}"/>
