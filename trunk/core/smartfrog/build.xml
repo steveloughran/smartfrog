@@ -193,11 +193,11 @@
   <property name="javac.java.version" value="1.5"/>
   <property name="build.compiler" value="modern"/>
   <property name="javac.compiler" value="${build.compiler}"/>
-  <property name="javac.max.memory" value="192m" />
+  <property name="javac.max.memory" value="1024m" />
     
   <!--use the forking compiler with tuned memory use and profiling diagnostics-->
   <property name="rmic.compiler" value="forking"/>
-  <property name="rmic.max.memory" value="512m" />
+  <property name="rmic.max.memory" value="1024m" />
   <property name="rmic.forking.commandline.extras" value="" />
   <property name="rmic.forking.commandline" 
     value="-J-Xmx${rmic.max.memory} ${rmic.forking.commandline.extras}"/>
@@ -366,12 +366,14 @@
   <!-- =================================================================== -->
   <target name="compile-source" depends="initbuild,createParser" description="Compiles the source code">
     <!-- Compile the java code -->
+	<!--  @todo Automation package has dependencies with RabitMQ and needs to be moved from Services to Components -->
     <echo level="verbose">${javac.java.version}
       build.compiler=${build.compiler}
       javac.compiler=${javac.compiler}</echo>
     <javac compiler="${javac.compiler}" 
       srcdir="${src.dir}"
       includes="**/*.java" 
+	  excludes="org/smartfrog/services/automation/**"   
       destdir="${build.classes.dir}"
       debug="${javac.debug.mode}"
       debuglevel="${javac.debug.level}"
