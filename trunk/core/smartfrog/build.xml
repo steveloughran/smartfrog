@@ -60,6 +60,7 @@
     <echo message="            ${java.home} "/>
     <echo message="      OS: ${os.name} ${os.version} (${os.arch})"/>
 	<echo message="      Ant: ${ant.version}"/>
+	<echo message="      Ant File: ${ant.file}"/>
     <echo message="      Build dir: ${basedir} "/>
     <echo message="      Core dir: ${core.dir}"/>
     <echo message="      Root dir: ${root.dir}"/>				    	
@@ -76,8 +77,11 @@
       = ${java.home}
       = OS: ${os.name} ${os.version}
 	  = Ant: ${ant.version}
+	  = Ant File: ${ant.file}
       ===================================================================
     </echo>
+	<!--<echoproperties prefix="ant." /> -->
+	<!--<echoproperties prefix="ivy." /> -->
     <fail>
       <condition>
         <not>
@@ -1050,6 +1054,40 @@
 
   <target name="ivy-resolve" depends="ivy-init" if="ivy.found">
     <ivy:resolve />
+	<echo message="  "/>
+    <echo message=" ======================================================="/>
+    <echo message=" IVY Build info - Project: ${Name.System} ${version}"/>
+	<echo message="      Ant: ${ant.version}"/>
+	<echo message="      Ant File: ${ant.file}"/>
+    <echo message="      Build dir: ${basedir} "/>
+    <echo message="      Core dir: ${core.dir}"/>			
+    <echo message="      Ivy ver:  ${ivy.version}"/>		
+    <echo message="      IvyCache: ${ivy.cache.dir}"/>	
+	<echo message="      IvyResolvedFile: ${ivy.resolved.file}"/>	
+	<echo message="      IvyConfigFile: ${ivy.settings.file}"/>
+    <echo message=" --------------------------------------------------------"/>
+    <echo
+      message="   Class Path= ${line.separator}|   |-- ${echo.smartfrog.class.path}"/>
+    <echo message=" ======================================================="/>
+    <echo message="  "/>
+    
+    <echo level="verbose">
+      ========================IVY Build info ============================
+      = ${Name.System} ${version}
+      = ${Name.Company}
+      = Java: ${java.version} ${java.vendor}
+      = ${java.home}
+      = OS: ${os.name} ${os.version}
+	  = Ant: ${ant.version}
+	  = Ivy: ${ivy.version}
+	  = IvyCache: ${ivy.cache.dir}
+	  = IvyResolvedFile: ${ivy.resolved.file}
+	  = IvyConfigFile: ${ivy.settings.file}
+      ===================================================================
+    </echo>
+	<!--<echoproperties prefix="ant." /> -->
+	<!--<echoproperties prefix="ivy." /> -->
+	<echoproperties prefix="ivy." />
   </target>
 
   <target name="ivy-retrieve" depends="ivy-resolve" if="ivy.found">
