@@ -1,22 +1,26 @@
-/** (C) Copyright Hewlett-Packard Development Company, LP
+/** (C) Copyright 1998-20017 Hewlett-Packard Development Company, LP
 
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 2.1 of the License, or (at your option) any later version.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
 
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-Lesser General Public License for more details.
+ http://www.apache.org/licenses/LICENSE-2.0
 
-You should have received a copy of the GNU Lesser General Public
-License along with this library; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
 
-For more information: www.smartfrog.org
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the Apache License, Version 2.0
+ License as published by the Apache Software Foundation at
+ http://www.apache.org/licenses/.
 
-*/
+ For more information: www.smartfrog.org
+
+ */
 
 package org.smartfrog;
 
@@ -41,6 +45,8 @@ public class Version {
     final static String ATR_BUILD = "build";
     /** SmartFrog attribute name. Value = {@value} */
     final static String ATR_STATUS = "status";
+    /** SmartFrog attribute name. Value = {@value} */
+    final static String ATR_LICENSE = "license";
     /** SmartFrog attribute name. Value = {@value} */
     final static String COPYRIGHT = "copyright";
     /** SmartFrog attribute name. Value = {@value} */
@@ -70,6 +76,7 @@ public class Version {
     private static String minorRelease="4";
     private static String build=       "17"; // odd numbers are development versions
     private static String status=      ""; //alpha, beta, stable
+    private static String license=      "Apache v2.0";
 
     private static String minCoreVersion = null;
 
@@ -109,6 +116,7 @@ public class Version {
             minorRelease = classComponentDescription.sfResolve(ATR_MINOR_RELEASE, minorRelease , false);
             build = classComponentDescription.sfResolve(ATR_BUILD, build , false);
             status = classComponentDescription.sfResolve(ATR_STATUS, status , false);
+            license = classComponentDescription.sfResolve(ATR_LICENSE, license , false);
             copyright = classComponentDescription.sfResolve(COPYRIGHT, copyright , false);
             minCoreVersion = classComponentDescription.sfResolve(ATR_MIN_CORE_VERSION, minCoreVersion , false);
             maxCoreVersion = classComponentDescription.sfResolve(ATR_MAX_CORE_VERSION, maxCoreVersion , false);

@@ -5,7 +5,7 @@
     xsi:noNamespaceSchemaLocation="../antbuild/ivy/ivy.xsd"
     >
   <info organisation="org.smartfrog" module="smartfrog">
-    <license name="LGPL"/>
+    <license name="Apache v2.0"/>
     <ivyauthor name="Hewlett-Packard" url="http://www.smartfrog.org"/>
     <description>Smartfrog core, services and examples</description>
   </info>
